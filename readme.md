@@ -1,0 +1,3 @@
+# Git repo for my Petnica '26 project.
+
+Istraživačka stanica Petnica (Petnica Science Center) is a premier independent, non-profit institution in Serbia (near Valjevo) founded in 1982 for extracurricular science education. It provides advanced training, research facilities, and mentorship for high-achieving students and teachers across 15+ STEM and social science disciplines, fostering critical thinking through hands-on research projects.
