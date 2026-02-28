@@ -1,10 +1,11 @@
 # Regex-Engine - Petnica Science Center class of '26 project
 
 ## Regex-Engine
-This repo contains my Python implementation of a Non-deterministic Finite Automaton (NFA) Regex engine. The benefit of an NFA Regex engine is its support for advanced features (such as backreferences, lazy quantifiers, and lookarounds), though it faces the risk of catastrophic backtracking. NFA engines are the standard and are implemented in the default libraries of Python, Perl, JS, JAVA, .NET, PHP, Ruby, and many more languages.
+This repo contains my Python implementation of a **Non-deterministic Finite Automaton** (NFA) **Regex engine**. The benefit of an NFA Regex engine is its support for advanced features (such as **backreferences**, **lazy quantifiers**, and **lookarounds**), though it faces the risk of catastrophic backtracking. NFA engines are the standard and are implemented in the default libraries of Python, Perl, JS, JAVA, .NET, PHP, Ruby, and many more languages.
 
 ## Features
-Regex-Engine is a functional NFA regex engine built from scratch without external regex libraries. It parses regular expressions into an Abstract Syntax Tree (AST) and evaluates strings via backtracking. Below is a render of the Abstract Syntax Tree for `"(reg|reg-)(ex)+"`.
+Regex-Engine is a functional NFA regex engine built from scratch without external regex libraries. It parses regular expressions into an **Abstract Syntax Tree** (AST) and evaluates strings via backtracking. 
+**Below is a render of the Abstract Syntax Tree for** `"(reg|reg-)(ex)+"`.
 
 ```mermaid
 ---
@@ -69,4 +70,4 @@ The engine is broken down into three main theoretical components:
 The project includes a built-in `Tester` class that validates the engine's functionality against a dictionary of predefined unit tests. It utilizes `colorama` for clean, color-coded terminal outputs indicating `PASS`/`FAIL` states alongside the evaluated rule, target string, and boolean result.
 
 ## Petnica
-Istraživačka stanica Petnica ([Petnica Science Center](https://petnica.rs/)) is a premier independent, non-profit institution in Serbia (near Valjevo) founded in 1982 for extracurricular science education. It provides advanced training, research facilities, and mentorship for high-achieving students and teachers across 15+ STEM and social science disciplines, fostering critical thinking through hands-on research projects.
+**Istraživačka stanica Petnica** ([Petnica Science Center](https://petnica.rs/)) is a premier independent, non-profit institution in Serbia (near Valjevo) founded in 1982 for extracurricular science education. It provides advanced training, research facilities, and mentorship for high-achieving students and teachers across 15+ STEM and social science disciplines, fostering critical thinking through hands-on research projects.
