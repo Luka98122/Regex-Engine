@@ -1,4 +1,4 @@
-# Regex-Engine is my project for Petnica Science Center class of '26 .
+# Regex-Engine - Petnica Science Center class of '26 project.
 ---
 # Regex-Engine
 This repo contains my python implementation of a Non-deterministic Finite Automation Regex engine. The benefit of a NFA Regex engine is its support for advanced features, such as backreferences, lazy quantifiers and lookarounds, but it faces risk of catastrophic backtracking. NFA engines are implemented in the default libraries of Python, Perl, JS, JAVA, .NET, PHP, Ruby, and many more languages.
