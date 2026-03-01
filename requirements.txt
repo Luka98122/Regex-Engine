@@ -1,2 +1,2 @@
-colorama
-manim
+colorama==0.4.6
+manim==0.20.1
