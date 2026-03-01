@@ -10,7 +10,7 @@ Regex-Engine is a functional NFA regex engine built from scratch without externa
 
 ![](./resources/mermaid_graph.png)
 
-![Example](./resources/videos/complex_match.gif)
+
 
 ### Supported Metacharacters and Syntax
 * **Literals:** Matches exact string characters.
@@ -24,6 +24,8 @@ Regex-Engine is a functional NFA regex engine built from scratch without externa
 * **Character Classes (`[...]`):** Matches any single character within the brackets. Supports both discrete characters (e.g., `[abc]`) and ranges (e.g., `[a-zA-Z1-5]`).
 * **Grouping (`(...)`):** Overrides default precedence rules to group sub-expressions together (e.g., `(abc|def)+`). *(Note: Capturing and extracting these groups is currently a work-in-progress).*
 * **Escaping (`\`):** Allows the use of metacharacters as literal characters (e.g., `\.`).
+
+![Example](./resources/videos/complex_match.gif)
 
 ### Project Architecture
 The engine is broken down into three main theoretical components:
