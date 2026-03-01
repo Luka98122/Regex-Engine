@@ -32,7 +32,7 @@ The engine is broken down into three main theoretical components:
 1.  **Lexer:** Reads the raw regex string and tokenizes it into identifiable units (e.g., `STAR`, `PIPE`, `CHAR_CLASS`).
 2.  **Parser:** A recursive descent parser that processes the tokens based on regex operator precedence (Parentheses > Quantifiers > Concatenation > Alternation) to build an Abstract Syntax Tree (AST) composed of `Node` objects.
 3.  **Matcher (AST Nodes):** Each `Node` subclass (like `Literal`, `Alternation`, or `Quantifier`) implements a `match()` method. The engine traverses the text using a `StateContext` and utilizes backtracking to explore different NFA branches until a match is found or all possibilities are exhausted.
-
+4. **Animations:** using [manim](https://github.com/3b1b/manim), there is a helper script (`resources/regex_anim.py`) that takes a regex expression and string to match against, and then renders a video of the checking process.
 ### Custom Testing Suite
 The project includes a built-in `Tester` class that validates the engine's functionality against a dictionary of predefined unit tests. It utilizes `colorama` for clean, color-coded terminal outputs indicating `PASS`/`FAIL` states alongside the evaluated rule, target string, and boolean result.
 
