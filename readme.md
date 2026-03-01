@@ -5,47 +5,9 @@ This repo contains my Python implementation of a **Non-deterministic Finite Auto
 
 ## Features
 Regex-Engine is a functional NFA regex engine built from scratch without external regex libraries. It parses regular expressions into an **Abstract Syntax Tree** (AST) and evaluates strings via backtracking. 
-**Below is a render of the Abstract Syntax Tree for** `"(reg|reg-)(ex)+"`.
+**Below is a render of the Abstract Syntax Tree for** `"(reg)*-?(ex)+"`.
 
-```mermaid
----
-title: AST structure for "(reg|reg-)(ex)+"
----
-graph TD
-    node_1475129666320["Concatenation"]
-    node_1475129663888["Concatenation"]
-    node_1475130089088["Alternation (|)"]
-    node_1475130094464["Concatenation"]
-    node_1475130086736["Literal: 'r'"]
-    node_1475130094464 --> node_1475130086736
-    node_1475128339792["Literal: 'e'"]
-    node_1475130094464 --> node_1475128339792
-    node_1475128343952["Literal: 'g'"]
-    node_1475130094464 --> node_1475128343952
-    node_1475130089088 --> node_1475130094464
-    node_1475128338832["Concatenation"]
-    node_1475129667232["Literal: 'r'"]
-    node_1475128338832 --> node_1475129667232
-    node_1475129671184["Literal: 'e'"]
-    node_1475128338832 --> node_1475129671184
-    node_1475130056368["Literal: 'g'"]
-    node_1475128338832 --> node_1475130056368
-    node_1475128442624["Literal: '-'"]
-    node_1475128338832 --> node_1475128442624
-    node_1475130089088 --> node_1475128338832
-    node_1475129663888 --> node_1475130089088
-    node_1475130089424["Quantifier (1 to ∞)"]
-    node_1475128338192["Concatenation"]
-    node_1475128441264["Literal: 'e'"]
-    node_1475128338192 --> node_1475128441264
-    node_1475128098384["Literal: 'x'"]
-    node_1475128338192 --> node_1475128098384
-    node_1475130089424 --> node_1475128338192
-    node_1475129663888 --> node_1475130089424
-    node_1475129666320 --> node_1475129663888
-    node_1475130089760["End"]
-    node_1475129666320 --> node_1475130089760
-```
+[![](https://mermaid.ink/img/pako:eNqVld1umzAUgF8FeRdpN6j8g_m72LSl69V2MbXaxcY0OWBSS2BHxkhpo9zvKfZwe5IZSCuSOlXCFTbf-WwfH-wNKFTJQQaCIMilEabmmffx9s5rje4K02nuVUp7ObjQfHn5NvhwwdeX73KQyyFgqdnq3ru7zqVnH2lVv1EYU0QQxRTG-GcO5koWzHDJjFAyB79caJimJ6EQEoKj0KLfOmZnWwmuvQvoGeX9-_P30mkPYQIhPGkiIcRJ0qNfhOGa1Zk307NXpF4QvHcIXHgfsCfmZ4r7Dy48OhQvzxRHLvEu0Q68txzbwkN8Z3lpTyiJwsS1jejYJkYJ3F9n4FznTu1aZ3LGxEeL057Aw4mjV-uvHwHhE-uP4NPKZJQ6VtkLnHhC8J54fZZ4FBzLhwu3lnOybS3HzhCnPX1hxwnCaTSk77MsjyzO4XuKAz5YalGCzB583AcN1w3rm2CTA3PPG56DzJ6DC9baNz-Xu97vTAu2qHnbf96MY-ZgpUXD9MNc1UqPcW8QxylZDKF7zB1fmylXJRWripfcJ6VLrqckjBZRGU7IWkg-Bco0jHg1AVpeKFkeTAxWKMZsQtkSMeIAIiRElE6gSklzwxpRP4xEJ4JGSdWuWMF9bzZnbcFKwby5TfTMdtwI_dx4Bg98t-Jxl2VEV-v-ktlu7basmPyhVPO0M1p1y3uQVaxubatblfanuhbMXkXNc6_mckhWJw3IEEbRYAHZBqxtm-KrGMVpamsiwZBiHzyAjMDoiiAcQ4JInCYQbX3wOAwLr2hKSYxpGBNbRJQgH_BSGKW_jnfncIVu_wP0eAd2?type=png)](https://mermaid.live/edit#pako:eNqVld1umzAUgF8FeRdpN6j8g_m72LSl69V2MbXaxcY0OWBSS2BHxkhpo9zvKfZwe5IZSCuSOlXCFTbf-WwfH-wNKFTJQQaCIMilEabmmffx9s5rje4K02nuVUp7ObjQfHn5NvhwwdeX73KQyyFgqdnq3ru7zqVnH2lVv1EYU0QQxRTG-GcO5koWzHDJjFAyB79caJimJ6EQEoKj0KLfOmZnWwmuvQvoGeX9-_P30mkPYQIhPGkiIcRJ0qNfhOGa1Zk307NXpF4QvHcIXHgfsCfmZ4r7Dy48OhQvzxRHLvEu0Q68txzbwkN8Z3lpTyiJwsS1jejYJkYJ3F9n4FznTu1aZ3LGxEeL057Aw4mjV-uvHwHhE-uP4NPKZJQ6VtkLnHhC8J54fZZ4FBzLhwu3lnOybS3HzhCnPX1hxwnCaTSk77MsjyzO4XuKAz5YalGCzB583AcN1w3rm2CTA3PPG56DzJ6DC9baNz-Xu97vTAu2qHnbf96MY-ZgpUXD9MNc1UqPcW8QxylZDKF7zB1fmylXJRWripfcJ6VLrqckjBZRGU7IWkg-Bco0jHg1AVpeKFkeTAxWKMZsQtkSMeIAIiRElE6gSklzwxpRP4xEJ4JGSdWuWMF9bzZnbcFKwby5TfTMdtwI_dx4Bg98t-Jxl2VEV-v-ktlu7basmPyhVPO0M1p1y3uQVaxubatblfanuhbMXkXNc6_mckhWJw3IEEbRYAHZBqxtm-KrGMVpamsiwZBiHzyAjMDoiiAcQ4JInCYQbX3wOAwLr2hKSYxpGBNbRJQgH_BSGKW_jnfncIVu_wP0eAd2)
 
 ### Supported Metacharacters and Syntax
 * **Literals:** Matches exact string characters.
