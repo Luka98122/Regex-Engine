@@ -3,11 +3,15 @@
 ## Regex-Engine
 This repo contains my Python implementation of a **Non-deterministic Finite Automaton** (NFA) **Regex engine**. The benefit of an NFA Regex engine is its support for advanced features (such as **backreferences**, **lazy quantifiers**, and **lookarounds**), though it faces the risk of catastrophic backtracking. NFA engines are the standard and are implemented in the default libraries of Python, Perl, JS, JAVA, .NET, PHP, Ruby, and many more languages.
 
+
 ## Features
 Regex-Engine is a functional NFA regex engine built from scratch without external regex libraries. It parses regular expressions into an **Abstract Syntax Tree** (AST) and evaluates strings via backtracking. 
 **Below is a render of the Abstract Syntax Tree for** `"(reg)*-?(ex)+"`.
 
 ![](./resources/mermaid_graph.png)
+
+![Example](./resources/videos/complex_match.gif)
+
 ### Supported Metacharacters and Syntax
 * **Literals:** Matches exact string characters.
 * **Wildcard (`.`):** Matches any single character (except newlines).
